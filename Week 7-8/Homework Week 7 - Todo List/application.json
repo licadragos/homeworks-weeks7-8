@@ -1,0 +1,33 @@
+[{
+    "id": "1",
+    "taskName": "Task2",
+    "taskDescription": "Task1 Description",
+    "taskStatus": "Completed",
+    "startDate": "17/09/2021",
+    "dueDate": "28/09/2021",
+    "assignedUser": "User1"
+},{
+    "id": "2",
+    "taskName": "Task2",
+    "taskDescription": "Task2 Description",
+    "taskStatus": "In progress",
+    "startDate": "7/11/2021",
+    "dueDate": "29/11/2021",
+    "assignedUser": "User2"
+}, {
+    "id": "3",
+    "taskName": "Task3",
+    "taskDescription": "Task3 Description",
+    "taskStatus": "On Hold",
+    "startDate": "11/10/2021",
+    "dueDate": "30/10/2021",
+    "assignedUser": "User3"
+}, {
+    "id": "4",
+    "taskName": "Task4",
+    "taskDescription": "Task4 Description",
+    "taskStatus": "Not Started",
+    "startDate": "07/10/2021",
+    "dueDate": "14/11/2021",
+    "assignedUser": "User4"
+}]

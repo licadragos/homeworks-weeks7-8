@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dynamic Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="Table.css" />
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Add new row
+            $("#add-row").click(function(){
+                var firstname = $("#firstname").val();
+                var lastname = $("#lastname").val();
+                var email = $("#email").val();
+                $(".table tbody tr").last().after(
+                    '<tr class="fadetext">'+
+                        '<td><input type="checkbox" id="select-row"></td>'+
+                        '<td>'+firstname+'</td>'+
+                        '<td>'+lastname+'</td>'+
+                        '<td>'+email+'</td>'+
+                    '</tr>'
+                );
+            })
+
+            // Select all checkbox
+            $("#select-all").click(function(){
+                var isSelected = $(this).is(":checked");
+                if(isSelected){
+                    $(".table tbody tr").each(function(){
+                        $(this).find('input[type="checkbox"]').prop('checked', true);
+                    })
+                }else{
+                    $(".table tbody tr").each(function(){
+                        $(this).find('input[type="checkbox"]').prop('checked', false);
+                    })
+                }
+            });
+            
+            // Remove selected rows
+            $("#remove-row").click(function(){
+                $(".table tbody tr").each(function(){
+                    var isChecked = $(this).find('input[type="checkbox"]').is(":checked");
+                    var tableSize = $(".table tbody tr").length;
+                    if(tableSize == 1){
+                        alert('All rows cannot be deleted.');
+                    }else if(isChecked){
+                        $(this).remove();
+                    }
+                });
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <div class="boxes">
+        <div class="imdb">
+            <img src="images/imdb.jpg" alt="imdb">
+        </div>
+        <div class="moneyheist">
+            <img src="images/imgmain.jpg" alt="moneyheist" width="510px">
+        </div>
+        <div class="info">
+            <h1>Money Heist</h1>
+            <p>Original title: La casa del papel</p>
+            <p><i>TV Series 2017–2021 TV-MA 1h 10min</i></p>
+            <p>Money Heist (Spanish: La casa de papel, "The House of Paper"; also known as The Paperhouse) is a Spanish heist crime drama television series created by Álex Pina. The series traces two long-prepared heists led by the Professor (Álvaro Morte), one on the Royal Mint of Spain, and one on the Bank of Spain, told from the perspective of one of the robbers, Tokyo (Úrsula Corberó).</p>
+            <h3>Storyline</h3>
+            <p>To carry out the biggest heist in history, a mysterious man called The Professor recruits a band of eight robbers who have a single characteristic: none of them has anything to lose. Five months of seclusion memorizing every step, every detail, every probability culminate in eleven days locked up in the National Coinage and Stamp Factory of Spain, surrounded by police forces and with dozens of hostages in their power, to find out whether their suicide wager will lead to everything or nothing.</p>
+            <h3>Netflix acquisition</h3>
+            <p>Part 1 was made available on Netflix Spain on 1 July 2017, like other series belonging to Antena 3's parent media group Atresmedia.[88] In December 2017, Netflix acquired the exclusive global streaming rights for the series.[74][88] Netflix re-cut the series into 22 episodes of around 50 minutes' length.[84] Cliffhangers and scenes had to be divided and moved to other episodes, but this proved less drastic than expected because of the series' perpetual plot twists.[84] Netflix dubbed the series and renamed it from La casa de papel to Money Heist for distribution in the English-speaking world.</p>
+            <p>The series received several awards including the International Emmy Award for Best Drama Series at the 46th International Emmy Awards, as well as critical acclaim for its sophisticated plot, interpersonal dramas, direction, and for trying to innovate Spanish television. The Italian anti-fascist song "Bella ciao", which plays multiple times throughout the series, became a summer hit across Europe in 2018.</p>
+            <h3>Filming</h3>
+            <p>Parts 1 and 2 were filmed back-to-back in the greater Madrid region from January until August 2017.[23][25][51] The pilot episode was recorded in 26 days,[48] while all other episodes had around 14 filming days.[16] Production was split into two units to save time, with one unit shooting scenes involving the Professor and the police, and the other filming scenes with the robbers.[19] The main storyline is set in the Royal Mint of Spain in Madrid, but the exterior scenes were filmed at the Spanish National Research Council (CSIC) headquarters for its passing resemblance to the Mint,[48] and on the roof of the Higher Technical School of Aeronautical Engineers, part of the Technical University of Madrid.[51]</p>
+        </div class="series">
+            <p id="series1"><span></span>Below you have an interactive table where you can select/add/remove all your favorite actors/actresses from Money Heist (or "La casa del papel", its original title).</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-div">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="id" placeholder="ID">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="character-name" placeholder="Character Name">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="actor-name" placeholder="Actor/Actress Name">
+                </div>
+                <div class="col-md-3" style="text-align: right;">
+                    <button class="btn btn-primary" id="add-row">Add Crew Member</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>All <input type="checkbox" id="select-all"></th>
+                        <th>ID</th>
+                        <th>Character Name</th>
+                        <th>Actor/Actress Name</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" id="select-row"></td>
+                        <td>1</td>
+                        <td>Tokio</td>
+                        <td>Úrsula Corberó</td>
+                        <td><img src="images/img1.jpg" width="100px"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="select-row"></td>
+                        <td>2</td>
+                        <td>Raquel Murillo</td>
+                        <td>Itziar Ituño</td>
+                        <td><img src="images/img2.jpg" width="100px"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="select-row"></td>
+                        <td>3</td>
+                        <td>Río</td>
+                        <td>Miguel Herrán</td>
+                        <td><img src="images/img3.jpg" width="100px"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="remove-row" id="remove-row">Remove Row</button>
+            <br>
+            <br>
+        </div>
+    </div>
+</body>
+</html>

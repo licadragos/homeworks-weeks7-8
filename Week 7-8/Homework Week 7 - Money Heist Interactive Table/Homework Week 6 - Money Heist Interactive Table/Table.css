@@ -1,0 +1,98 @@
+.body{
+    background-color: black;
+}
+
+.boxes{
+    display: grid;
+    grid-template-columns: 36% 64%;
+    grid-template-rows: 0.4fr 1fr 0.05fr;
+    grid-template-areas: 
+    "imdb imdb"
+    "moneyheist info"
+    "series1 series1";
+    grid-gap: 0.7rem;
+    text-align: center;
+    margin-right: 410px;
+    margin-left: 410px;
+}
+
+.imdb{
+    grid-area: imdb;
+}
+
+.moneyheist{
+    grid-area: moneyheist;
+    text-align: right; 
+}
+
+.info{
+    grid-area: info;
+    text-align: left;
+}
+
+#series1{
+    grid-area: series1;
+    text-align: left;
+}
+
+
+/* Next */
+button{
+    width: 200px;
+}
+
+.table{
+    margin-top: 30px;
+    box-shadow: 0px 0px 5px black;
+}
+
+.table thead tr{
+    background-color: blue;
+    box-shadow: 0px 0px 5px blue;
+    outline: blue;
+    border: 1px solid white;
+    color: white;
+}
+
+.table th, .table td{
+    padding: 10px;
+    text-align: center
+}
+
+.table tbody tr:hover{
+    background-color: #8080804a;
+}
+
+.table tbody tr:active{
+    box-shadow: 0px 0px 5px black;
+}
+
+.remove-row{
+    background-color: red;
+    border: 1px solid white !important;
+    outline: red !important;
+    color: white;
+    widows: 200px !important;
+    height: 40px;
+    box-shadow: 0px 0px 5px red;
+}
+
+.remove-row:active{
+    border: 1px solid white;
+    outline: blue !important;
+    width: 195px !important;
+    height: 38px !important;
+}
+
+.fadetext{
+    animation: fadetext 1s ease;
+}
+
+@keyframes fadetext{
+    0%{
+        opacity: 0.1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
